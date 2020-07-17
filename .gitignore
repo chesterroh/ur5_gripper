@@ -2,4 +2,4 @@
 /.catkin_tools
 /devel
 /logs
-
+*.ipynb_checkpoints*
