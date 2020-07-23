@@ -6,7 +6,8 @@
     <joint name="${prefix}robotiq_coupler_joint" type="fixed">
       <parent link="${connected_to}" />
       <child link="${prefix}robotiq_coupler_link" />
-      <origin xyz="0 0 0.004" rpy="0 0 ${-pi/2.0}" />
+      <!--      <origin xyz="0 0 0" rpy="0 0 ${-pi/2.0}" /> -->
+      <origin xyz="0 0 0" rpy="0 0 0" />
     </joint>
     <link name="${prefix}robotiq_coupler_link">
       <visual>
@@ -28,12 +29,12 @@
       <gazebo name="robotiq_coupler_link">
 	<mu1> 0.9 </mu1>
 	<mu2> 0.9 </mu2>
-	<material>Gazebo/FlatBlack</material>
+	<material>Gazebo/FlatWhite</material>
       </gazebo>
     </link>
     
     <joint name="${prefix}gripper_joint" type="fixed">
-      <origin xyz="0 0 0.008" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <parent link="${prefix}robotiq_coupler_link" />
       <child link="${prefix}robotiq_arg2f_base_link" />
     </joint>
