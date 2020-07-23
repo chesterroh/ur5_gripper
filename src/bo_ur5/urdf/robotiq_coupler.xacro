@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <xacro:macro name="robotiq_coupler" params="prefix connected_to">
+    
+    <joint name="${prefix}robotiq_coupler_joint" type="fixed">
+      <parent link="${connected_to}" />
+      <child link="${prefix}robotiq_coupler_link" />
+      <origin xyz="0 0 0.004" rpy="0 0 ${-pi/2.0}" />
+    </joint>
+    <link name="${prefix}robotiq_coupler_link">
+      <visual>
+	<geometry>
+	  <mesh filename="package://bo_ur5/meshes/visual/robotiq_85_coupler.stl" />
+	</geometry>
+      </visual>
+      <collision>
+	<geometry>
+	  <mesh filename="package://bo_ur5/meshes/visual/robotiq_85_coupler.stl" />
+	</geometry>
+      </collision>
+      <inertial>
+	<origin xyz="2.073e-05   1.45286e-03  -1.1049e-03" rpy="0 0 0" />
+	<mass value="0.168" />
+	<inertia ixx="6.69695624e-05" ixy="5.21511788e-09" ixz="-2.74383009e-08" 
+		 iyy="7.85088161e-05" iyz="5.41105193e-07" izz="1.41819717e-04"/>
+      </inertial>
+      <gazebo name="robotiq_coupler_link">
+	<mu1> 0.9 </mu1>
+	<mu2> 0.9 </mu2>
+	<material>Gazebo/FlatBlack</material>
+      </gazebo>
+    </link>
+    
+    <joint name="${prefix}gripper_joint" type="fixed">
+      <origin xyz="0 0 0.008" rpy="0 0 0" />
+      <parent link="${prefix}robotiq_coupler_link" />
+      <child link="${prefix}robotiq_arg2f_base_link" />
+    </joint>
+
+  </xacro:macro>
+</robot>
