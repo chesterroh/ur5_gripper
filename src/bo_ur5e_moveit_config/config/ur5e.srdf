@@ -10,24 +10,34 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="arm">
-        <chain base_link="base_link" tip_link="simple_gripper_base" />
+        <chain base_link="base_link" tip_link="tool1" />
     </group>
-    <group name="effector">
-        <chain base_link="simple_gripper_right_driver" tip_link="simple_gripper_right_pad" />
+    <group name="simple_gripper">
+        <link name="simple_gripper_base" />
+        <link name="simple_gripper_left_driver" />
+        <link name="simple_gripper_left_coupler" />
+        <link name="simple_gripper_left_follower" />
+        <link name="simple_gripper_left_pad" />
+        <link name="simple_gripper_left_spring_link" />
+        <link name="simple_gripper_right_driver" />
+        <link name="simple_gripper_right_coupler" />
+        <link name="simple_gripper_right_follower" />
+        <link name="simple_gripper_right_pad" />
+        <link name="simple_gripper_right_spring_link" />
     </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
     <group_state name="up" group="arm">
-        <joint name="elbow_joint" value="0" />
-        <joint name="shoulder_lift_joint" value="-1.0134" />
+        <joint name="elbow_joint" value="-0.3547" />
+        <joint name="shoulder_lift_joint" value="-1.2667" />
         <joint name="shoulder_pan_joint" value="0" />
-        <joint name="wrist_1_joint" value="0" />
-        <joint name="wrist_2_joint" value="0" />
+        <joint name="wrist_1_joint" value="0.0507" />
+        <joint name="wrist_2_joint" value="1.4694" />
         <joint name="wrist_3_joint" value="0" />
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="moveit_ee" parent_link="simple_gripper_base" group="effector" />
+    <end_effector name="simple_gripper" parent_link="tool1" group="simple_gripper" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
-    <virtual_joint name="virtual_world" type="fixed" parent_frame="world" child_link="base_link" />
+    <virtual_joint name="fixed_ee" type="fixed" parent_frame="world" child_link="base_link" />
     <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
     <passive_joint name="simple_gripper_left_driver_joint" />
     <passive_joint name="simple_gripper_left_follower_joint" />
