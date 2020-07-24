@@ -25,7 +25,7 @@ nnn
 
   <xacro:robotiq_ur_coupler parent="tool0" name="tool1" />
   <xacro:robotiq_2f_85 name="simple_gripper" parent="tool1" precise_collision="false" adaptive_transmission="false">
-    <origin xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0 0 0" rpy="0 0 -${pi/2}" />
   </xacro:robotiq_2f_85>
 
   <link name="world" />
