@@ -9,11 +9,10 @@ nnn
   <xacro:include filename="$(find ur_e_description)/urdf/ur5e.urdf.xacro" />
 
   <!-- robotiq coupler -->
-  <xacro:include filename="robotiq_coupler.xacro" />
+  <xacro:include filename="$(find robotiq_2f_model)/model/robotiq_ur_coupler.urdf.xacro" />
 
   <!-- robotiq_85_model -->
-  <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model_macro.xacro" />
-
+  <xacro:include filename="$(find robotiq_2f_model)/model/robotiq_2f_85.urdf.xacro" />
   <!-- arm -->
   <xacro:ur5e_robot prefix="" joint_limited="true"
     shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
@@ -24,8 +23,10 @@ nnn
     wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
     />
 
-  <xacro:robotiq_coupler prefix="" connected_to="tool0" />
-  <xacro:robotiq_arg2f_85 prefix="" />
+  <xacro:robotiq_ur_coupler parent="tool0" name="tool1" />
+  <xacro:robotiq_2f_85 name="simple_gripper" parent="tool1" precise_collision="false" adaptive_transmission="false">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:robotiq_2f_85>
 
   <link name="world" />
 
@@ -34,5 +35,11 @@ nnn
     <child link = "base_link" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
 
 </robot>

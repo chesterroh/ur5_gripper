@@ -2,7 +2,7 @@
 <launch>
   <arg name="gui" default="true" doc="Starts gazebo gui" />
 
-  <include file="$(find bo_ur5)/launch/ur5e_af85.launch">
+  <include file="$(find bo_ur5e_gazebo)/launch/ur5e_af85_upload.launch">
     <arg name="limited" value="true"/>
     <arg name="gui" value="$(arg gui)"/>
   </include>
