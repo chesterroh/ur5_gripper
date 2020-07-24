@@ -7,9 +7,9 @@ controller_list:
       - wrist_1_joint
       - wrist_2_joint
       - wrist_3_joint
-  - name: fake_simple_gripper_controller
+  - name: fake_gripper_controller
     joints:
-      - simple_gripper_right_driver_joint
+      []
 initial:  # Define initial robot poses.
   - group: arm
     pose: home
