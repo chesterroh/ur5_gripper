@@ -12,4 +12,4 @@ controller_list:
       - simple_gripper_right_driver_joint
 initial:  # Define initial robot poses.
   - group: arm
-    pose: up
+    pose: home
