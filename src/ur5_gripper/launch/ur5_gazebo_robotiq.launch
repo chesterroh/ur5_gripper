@@ -2,7 +2,7 @@
 <launch>
 
   <env name="GAZEBO_MODEL_PATH"
-       value="~/.gazebo/models:$(optenv GAZEBO_MODEL_PATH)" />
+       value="~/model_editor_models:~/.gazebo/models:$(optenv GAZEBO_MODEL_PATH)" />
   
   <arg name="limited" default="false"  doc="If true, limits joint range [-PI, PI] on all joints." />
   <arg name="paused" default="false" doc="Starts gazebo in paused mode" />
