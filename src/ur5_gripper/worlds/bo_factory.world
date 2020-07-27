@@ -10,10 +10,12 @@
       <uri>model://ground_plane</uri>
     </include>
 
+    <!-- chester
     <include>
       <uri>model://ur5_base</uri>
       <origin xyz="1.0 1.0 0" rpy="0 0 0" />
     </include>
+    -->
 
   </world>
 </sdf>
