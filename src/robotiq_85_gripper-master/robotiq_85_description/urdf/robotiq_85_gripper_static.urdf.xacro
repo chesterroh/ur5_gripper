@@ -1,4 +1,7 @@
 <?xml version="1.0"?>
+
+<!-- Chester changed some of the parts of joint attribute to 'fixed' from 'continuous' for a longer time stability in GAZEBO... -->
+
 <robot name="robotiq_85_gripper" xmlns:xacro="http://ros.org/wiki/xacro">
     <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.transmission.xacro" />
     <xacro:property name="pi" value="3.14159"/>
@@ -40,7 +43,8 @@
             <limit lower="0.0" upper="0.804" velocity="2.0" effort="1000"/>
         </joint>
 
-        <joint name="${prefix}robotiq_85_right_knuckle_joint" type="continuous">
+	<!-- chester changed it to fixed -->
+        <joint name="${prefix}robotiq_85_right_knuckle_joint" type="fixed">
             <parent link="${prefix}robotiq_85_base_link"/>
             <child link="${prefix}robotiq_85_right_knuckle_link"/>
             <axis xyz="0 0 1"/>
@@ -88,13 +92,15 @@
                          izx = "0.000000" izy = "0.000000" izz = "0.000010" />
             </inertial>
         </link>
-        <joint name="${prefix}robotiq_85_left_finger_joint" type="continuous">
+	<!-- chester changed it to fixed -->
+        <joint name="${prefix}robotiq_85_left_finger_joint" type="fixed">
             <parent link="${prefix}robotiq_85_left_knuckle_link"/>
             <child link="${prefix}robotiq_85_left_finger_link"/>
             <origin xyz="-0.00408552455 -0.03148604435 0.0" rpy="0 0 0" />
         </joint>
 
-        <joint name="${prefix}robotiq_85_right_finger_joint" type="continuous">
+	<!-- chester changed it to fixed -->
+        <joint name="${prefix}robotiq_85_right_finger_joint" type="fixed">
             <parent link="${prefix}robotiq_85_right_knuckle_link"/>
             <child link="${prefix}robotiq_85_right_finger_link"/>
             <origin xyz="-0.00408552455 -0.03148604435 0.0" rpy="0 0 0" />
@@ -140,7 +146,8 @@
             </inertial>
         </link> 
 
-        <joint name="${prefix}robotiq_85_left_inner_knuckle_joint" type="continuous">
+	<!-- chester changed it to fixed -->
+        <joint name="${prefix}robotiq_85_left_inner_knuckle_joint" type="fixed">
             <parent link="${prefix}robotiq_85_base_link"/>
             <child link="${prefix}robotiq_85_left_inner_knuckle_link"/>
             <axis xyz="0 0 1"/>
@@ -149,7 +156,8 @@
             <mimic joint="${prefix}robotiq_85_left_knuckle_joint" offset="0"/>
         </joint>
 
-        <joint name="${prefix}robotiq_85_right_inner_knuckle_joint" type="continuous">
+	<!-- chester changed it to fixed -->
+        <joint name="${prefix}robotiq_85_right_inner_knuckle_joint" type="fixed">
             <parent link="${prefix}robotiq_85_base_link"/>
             <child link="${prefix}robotiq_85_right_inner_knuckle_link"/>
             <axis xyz="0 0 1"/>
@@ -197,7 +205,8 @@
             </inertial>
         </link>
 
-        <joint name="${prefix}robotiq_85_left_finger_tip_joint" type="continuous">
+	<!-- chester changed it to fixed -->
+        <joint name="${prefix}robotiq_85_left_finger_tip_joint" type="fixed">
             <parent link="${prefix}robotiq_85_left_inner_knuckle_link"/>
             <child link="${prefix}robotiq_85_left_finger_tip_link"/>
             <axis xyz="0 0 1"/>
@@ -206,7 +215,8 @@
             <mimic joint="${prefix}robotiq_85_left_knuckle_joint" multiplier="-1"/>
         </joint>
 
-        <joint name="${prefix}robotiq_85_right_finger_tip_joint" type="continuous">
+	<!-- chester changed it to fixed -->
+        <joint name="${prefix}robotiq_85_right_finger_tip_joint" type="fixed">
             <parent link="${prefix}robotiq_85_right_inner_knuckle_link"/>
             <child link="${prefix}robotiq_85_right_finger_tip_link"/>
             <axis xyz="0 0 1"/>
