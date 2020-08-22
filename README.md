@@ -1,5 +1,7 @@
 All packages are built under Ubuntu 18.04 ROS1 melodic.
 
+* (remark) All launch files just call limited_joint_robot for moveit compatibility.
+ 
 # UR5 + Robotiq AF85 gripper
 ( AF85 gripper package has been imported from StanleyInnovation github repo : https://github.com/StanleyInnovation/robotiq_85_gripper )
 
