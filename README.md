@@ -27,7 +27,7 @@ roslaunch ur5_gripper_moveit_config moveit_rviz.launch config:=true
 
 Because of GAZEBO instability with AF85 (robot breaks down after certain amount of vibration accumulation w/r/t AF85), I changed some of continuous joints of AF85 to 'fixed' from 'continous'.
 
-For the static AF85 GAZEBO simulation, use the following commands instead.
+For the static AF85 GAZEBO simulation, use the following command instead.
 
 ```
 roslaunch ur5_gripper ur5_gazebo_robotiq_static.launch
@@ -35,6 +35,13 @@ roslaunch ur5_gripper ur5_gazebo_robotiq_static.launch
 
 # UR5 + RG2 gripper
 
+ - RG2 view - rviz
 ```
 roslaunch ur5_gripper view_ur5_rg2.launch
 ```
+
+ - RG2 gazebo launch
+```
+roslaunch ur5_gripper ur5_gazebo_rg2.launch
+```
+
